@@ -19,7 +19,7 @@ import android.speech.tts.TextToSpeech;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class GetProductInfo extends BaseActivity{
+public class GetProductInfo extends BaseActivity {
 	String TagID;
 	String[][] techListsArray;
 	PendingIntent pendingIntent;
@@ -27,10 +27,10 @@ public class GetProductInfo extends BaseActivity{
 	NfcAdapter NFCAdapter;
 	TextView message;
 	TextToSpeech textToSpeech_Obj;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 
 		// creating pending intent
 		pendingIntent = PendingIntent.getActivity(this, 0, new Intent(
@@ -51,7 +51,7 @@ public class GetProductInfo extends BaseActivity{
 
 		// if app is opened after pop up....
 		ScanTag(getIntent());
-		
+
 	}
 
 	@Override
@@ -222,32 +222,37 @@ public class GetProductInfo extends BaseActivity{
 		return myText;
 	}
 
+	// public void ScanTag(Intent intent) {
+	// Bundle b = new Bundle();
+	// String TagContents;
+	// if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+	// Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+	// TagID = ProductInformation.bin2hex(detectedTag.getId()).toString()
+	// .toLowerCase();
+	//
+	// if (TagID != null) {
+	// b.putString("TagID", TagID);
+	// TagContents = readdata(getNdefMessages(intent)).toString();
+	// if (TagContents != null) {
+	// b.putString("TagContents", TagContents);
+	// startActivity(new Intent(getApplicationContext(),
+	// ProductInformation.class).putExtras(b));
+	//
+	// }
+	// }
+	// }
+	//
+	// }
+
 	public void ScanTag(Intent intent) {
 		Bundle b = new Bundle();
 		String TagContents;
-		if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
-			Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-			TagID = ProductInformation.bin2hex(detectedTag.getId()).toString()
-					.toLowerCase();
-
-			// MyDatabaseHelper mydatabasehelper=new MyDatabaseHelper(this);
-			// String details=mydatabasehelper.getModString(TagID);
-			//
-			// // passing tagid to display to second activity
-			// b.putString("ID", TagID);
-			// b.putString("Text", mydatabasehelper.getModString(TagID));
-			//
-			if (TagID != null) {
-				b.putString("TagID", TagID);
-				TagContents = readdata(getNdefMessages(intent)).toString();
-				if (TagContents != null) {
-					b.putString("TagContents", TagContents);
-					startActivity(new Intent(getApplicationContext(),
-							ProductInformation.class).putExtras(b));
-					
-				}
-			}
-		}
+		TagID = null;
+		b.putString("TagID", TagID);
+		TagContents = null;
+		b.putString("TagContents", TagContents);
+		startActivity(new Intent(getApplicationContext(),
+				ProductInformation.class).putExtras(b));
 
 	}
 
@@ -257,5 +262,4 @@ public class GetProductInfo extends BaseActivity{
 		return R.layout.get_product_info;
 	}
 
-	
 }

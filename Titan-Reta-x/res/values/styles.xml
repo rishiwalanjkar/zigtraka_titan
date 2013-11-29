@@ -8,7 +8,7 @@
 
     <!-- Application theme. -->
 
-    <style name="Theme.Transparent" parent="android:Theme">
+    <style name="Theme.Transparent" parent="android:Theme.Light">
         <item name="android:windowBackground">@drawable/gradient</item>
         <item name="android:button">@style/ButtonText</item>
     </style>
