@@ -3,25 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/txtLabel"
+    <ImageButton
+        android:id="@+id/stopimageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Storyboard View"
-        android:textSize="16dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/playimageButton"
+        android:layout_marginRight="128dp" />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/playimageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="92dp"
+        android:layout_marginLeft="108dp" />
+
+    <custom.widgets.CustomTextViewLightItalic
+        android:id="@+id/storyboardtitletextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/storyboard" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/TextColor"
+        android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/storyboardNebula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <custom.widgets.CustomTextViewLightItalic
+        android:id="@+id/storyboardtextview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/storyboardtitletextView"
+        android:layout_marginTop="104dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp "
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/TextColor" />
 
 </RelativeLayout>

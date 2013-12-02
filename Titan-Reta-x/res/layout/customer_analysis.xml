@@ -9,7 +9,7 @@
     tools:context=".CustomerAnalysis" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/storyboardtitletextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -24,7 +24,7 @@
         android:id="@+id/customer_analysis"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/storyboardtitletextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
         android:orientation="horizontal" >

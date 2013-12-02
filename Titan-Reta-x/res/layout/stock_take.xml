@@ -12,8 +12,8 @@
         android:id="@+id/stocktake_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBaseline="@+id/storyboardtitletextView"
+        android:layout_alignBottom="@+id/storyboardtitletextView"
         android:layout_alignRight="@+id/linearLayout1"
         android:layout_marginRight="48dp"
         android:text="count"
@@ -46,7 +46,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/storyboardtitletextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout1"
@@ -71,7 +71,7 @@
             style="@style/ButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textView1"
+            android:layout_alignRight="@+id/storyboardtitletextView"
             android:layout_below="@+id/stock_take_resetbutton"
             android:background="@drawable/buttons"
             android:text="Match Inventory"

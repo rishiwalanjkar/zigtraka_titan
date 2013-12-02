@@ -2,7 +2,13 @@ package deploy.appdata;
 
 public interface directory {
 String rootFolderPath="/sdcard/Reta-X";
-String databaseFolderPath="/sdcard/Reta-X/Database";
-String databaseFilePath="/sdcard/Reta-X/Database/mod.sqlite";
-String logFolderPath="/sdcard/Reta-X/Log";
+String titanWatchesPath=rootFolderPath+"/Titan";
+String titanNebulaPath=titanWatchesPath+"/Nebula";
+String titanNebulaContentPath=titanNebulaPath+"/Content";
+String titanNebulaPicturePath=titanNebulaPath+"/Picture";
+String titanNebulaReviewPath=titanNebulaPath+"/Review";
+String titanNebulaMiscPath=titanNebulaPath+"/Misc";
+String databaseFolderPath=titanWatchesPath+"/Database";
+String databaseFilePath=databaseFolderPath+"/titanwc.sqlite";
+String logFolderPath=titanWatchesPath+"/Log";
 }

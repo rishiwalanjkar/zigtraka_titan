@@ -11,6 +11,7 @@
     <style name="Theme.Transparent" parent="android:Theme.Light">
         <item name="android:windowBackground">@drawable/gradient</item>
         <item name="android:button">@style/ButtonText</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
 
     <style name="ButtonText">
@@ -26,7 +27,7 @@
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
     </style>
-
+    
     <style name="CustomTheme" parent="@style/Theme.Transparent">
         <item name="android:tabWidgetStyle">@style/CustomTabWidget</item>
     </style>

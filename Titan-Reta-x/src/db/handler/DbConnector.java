@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class DbConnector {
 	private static String DB_PATH = directory.databaseFolderPath+"/";
-	private static String DB_NAME = "mod.sqlite";
+	private static String DB_NAME = "titanwc.sqlite";
 	private static SQLiteDatabase applicationDatabase;
 	
 	public static SQLiteDatabase open() {

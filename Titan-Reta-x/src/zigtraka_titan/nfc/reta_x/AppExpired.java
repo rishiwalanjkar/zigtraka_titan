@@ -1,0 +1,17 @@
+package zigtraka_titan.nfc.reta_x;
+
+import zigtraka.nfc.reta_x.R;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class AppExpired extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.app_expired);
+	}
+
+	
+}

@@ -128,14 +128,14 @@
             android:id="@+id/Subscription_ActivetextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignBottom="@+id/storyboardtitletextView"
             android:layout_marginLeft="54dp"
-            android:layout_toRightOf="@+id/textView1"
+            android:layout_toRightOf="@+id/storyboardtitletextView"
             android:text="Active"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/storyboardtitletextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
