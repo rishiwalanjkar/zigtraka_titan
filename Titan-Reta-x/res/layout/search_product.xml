@@ -106,91 +106,15 @@
                 android:textColor="@color/EditText"
                 android:textSize="@dimen/TextSize" />
 
-            <TextView />
-
             <Space />
-
-            <TextView
-                android:layout_gravity="left"
-                android:gravity="right"
-                android:text="Mkg.Charges"
-                android:textColor="@color/TextColor"
-                android:textSize="@dimen/TextSize" />
-
-            <EditText
-                android:id="@+id/search_product_making_Charges"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:enabled="false"
-                android:gravity="left"
-                android:textColor="@color/EditText"
-                android:textSize="@dimen/TextSize" />
 
             <TextView />
 
             <Space />
 
-            <TextView
-                android:layout_gravity="left"
-                android:gravity="right"
-                android:text="Gemstone"
-                android:textColor="@color/TextColor"
-                android:textSize="@dimen/TextSize" />
-
-            <EditText
-                android:id="@+id/search_product_gemestone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:enabled="false"
-                android:gravity="left"
-                android:textColor="@color/EditText"
-                android:textSize="@dimen/TextSize" />
-
-            <TextView />
-
             <Space />
 
-            <TextView
-                android:layout_gravity="left"
-                android:gravity="right"
-                android:text="Cut"
-                android:textColor="@color/TextColor"
-                android:textSize="@dimen/TextSize" />
-
-            <EditText
-                android:id="@+id/search_product_cut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:enabled="false"
-                android:gravity="left"
-                android:textColor="@color/EditText"
-                android:textSize="@dimen/TextSize" />
-
-            <TextView />
-
             <Space />
-
-            <TextView
-                android:layout_gravity="left"
-                android:gravity="right"
-                android:text="Carat"
-                android:textColor="@color/TextColor"
-                android:textSize="@dimen/TextSize" />
-
-            <EditText
-                android:id="@+id/search_product_carat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:enabled="false"
-                android:gravity="left"
-                android:textColor="@color/EditText"
-                android:textSize="@dimen/TextSize" />
-
-            <TextView />
 
             <Space />
 

@@ -27,8 +27,8 @@ public class SearchProduct extends BaseActivity {
 	private SearchView searchview;
 	private ListView listview;
 	private Cursor cursor;
-	private EditText ProductCode, ProductModel, Gemstone, Price, Carat, Cut,
-			Type, Wear, MakingCharges, Description;
+	private EditText ProductCode, ProductModel, Price,
+			Type, Wear, Description;
 	private GridLayout gridlayout;
 	private ScrollView scrollviewgridlayout, scrollviewdescription;
 	private Button btn_Edit, btn_Add, btn_Delete;
@@ -49,13 +49,9 @@ public class SearchProduct extends BaseActivity {
 
 		ProductCode = (EditText) findViewById(R.id.search_product_product_code);
 		ProductModel = (EditText) findViewById(R.id.search_product_product_model);
-		Gemstone = (EditText) findViewById(R.id.search_product_gemestone);
 		Price = (EditText) findViewById(R.id.search_product_price);
-		Carat = (EditText) findViewById(R.id.search_product_carat);
-		Cut = (EditText) findViewById(R.id.search_product_cut);
 		Type = (EditText) findViewById(R.id.search_product_type);
 		Wear = (EditText) findViewById(R.id.search_product_wear);
-		MakingCharges = (EditText) findViewById(R.id.search_product_making_Charges);
 		Description = (EditText) findViewById(R.id.search_product_description);
 		Txt_NoOfItemsFound = (TextView) findViewById(R.id.search_product_no_of_itemstextview);
 		Txt_productInfoTitle = (TextView) findViewById(R.id.search_product_productinfotextview);
@@ -94,7 +90,7 @@ public class SearchProduct extends BaseActivity {
 					// adding data to list from cursor
 					if (cursor.moveToFirst())
 						for (int i = 0; i < cursor.getCount(); i++) {
-							details[i] = cursor.getString(4);
+							details[i] = cursor.getString(2);
 							cursor.moveToNext();
 						}
                     DbConnector.close();
@@ -102,7 +98,7 @@ public class SearchProduct extends BaseActivity {
 					// defining adapter for listview
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 							getApplicationContext(),
-							android.R.layout.simple_expandable_list_item_1,
+							android.R.layout.simple_list_item_1,
 							details);
 
 					// setting adapter for listview
@@ -142,16 +138,12 @@ public class SearchProduct extends BaseActivity {
 					if (cursor.moveToPosition(position)) {
 
 						// setting respective records to respective edittexts
-						ProductCode.setText(cursor.getString(7));
-						ProductModel.setText(cursor.getString(4));
-						Gemstone.setText(cursor.getString(8));
-						Price.setText(cursor.getString(2));
-						Carat.setText(cursor.getString(13));
-						Cut.setText(cursor.getString(10));
-						Type.setText(cursor.getString(11));
-						Wear.setText(cursor.getString(12));
-						MakingCharges.setText(cursor.getString(5));
-						Description.setText(cursor.getString(9));
+						ProductCode.setText(cursor.getString(4));
+						ProductModel.setText(cursor.getString(2));
+						Price.setText(cursor.getString(1));
+						Type.setText(cursor.getString(6));
+						Wear.setText(cursor.getString(7));
+						Description.setText(cursor.getString(5));
 
 						// setting all data visible
 						gridlayout.setVisibility(View.VISIBLE);
@@ -177,23 +169,17 @@ public class SearchProduct extends BaseActivity {
 						TagID = cursor.getString(0);
 						DbForSearchProcuctActivity.updateRowByTagID(TagID, ProductCode
 								.getText().toString(), ProductModel.getText()
-								.toString(), Gemstone.getText().toString(),
-								Price.getText().toString(), Carat.getText()
-										.toString(), Cut.getText().toString(),
+								.toString(), 
+								Price.getText().toString(),
 								Type.getText().toString(), Wear.getText()
-										.toString(), MakingCharges.getText()
 										.toString());
 					}
 
 					ProductCode.setEnabled(false);
 					ProductModel.setEnabled(false);
-					Gemstone.setEnabled(false);
 					Price.setEnabled(false);
-					Carat.setEnabled(false);
-					Cut.setEnabled(false);
 					Type.setEnabled(false);
 					Wear.setEnabled(false);
-					MakingCharges.setEnabled(false);
 					Description.setEnabled(false);
 
 					btn_Edit.setText("Edit");
@@ -203,13 +189,9 @@ public class SearchProduct extends BaseActivity {
 				} else {
 					ProductCode.setEnabled(true);
 					ProductModel.setEnabled(true);
-					Gemstone.setEnabled(true);
 					Price.setEnabled(true);
-					Carat.setEnabled(true);
-					Cut.setEnabled(true);
 					Type.setEnabled(true);
 					Wear.setEnabled(true);
-					MakingCharges.setEnabled(true);
 					Description.setEnabled(true);
 
 					btn_Edit.setText("Save");

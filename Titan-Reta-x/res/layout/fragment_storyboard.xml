@@ -20,27 +20,16 @@
         android:layout_marginBottom="92dp"
         android:layout_marginLeft="108dp" />
 
-    <custom.widgets.CustomTextViewLightItalic
-        android:id="@+id/storyboardtitletextView"
-        android:layout_width="wrap_content"
+    <Gallery
+        android:id="@+id/fragment_storyboard_gallery"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/TextColor"
-        android:textSize="20sp" />
-
-    <custom.widgets.CustomTextViewLightItalic
-        android:id="@+id/storyboardtextview"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/storyboardtitletextView"
-        android:layout_marginTop="104dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp "
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/TextColor" />
+        android:padding="10dp"
+        android:fadeScrollbars="false"
+        android:layout_marginTop="93dp" 
+        android:background="@drawable/listbackground"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"/>
 
 </RelativeLayout>
