@@ -59,11 +59,6 @@ public class ProductInformation extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		
 		bundle = getIntent().getExtras();
-//	if (bundle != null) {
-//			TagID = bundle.getString("TagID");
-//			TagContents = bundle.getString("TagContents");
-//		}
-//		TagDetails = DbForProductInformationActivity.getTagDetails(TagID);
 
 		mTitle = mDrawerTitle = getTitle();
 

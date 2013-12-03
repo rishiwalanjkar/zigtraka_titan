@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FeaturesFragment extends Fragment {
 	private TextView textview;
@@ -27,9 +28,12 @@ public class FeaturesFragment extends Fragment {
         StringBuilder result=new StringBuilder();
         
         ArrayList<String> features=ContentReader.getToFromContents("$FeatureContent=");
+        if(features!=null){
         for(int i=0;i<features.size();i++)        	
         result.append("* "+features.get(i).toString()+"\n\n");
-        
+        }
+        else
+        	Toast.makeText(rootView.getContext(), "No Content File On Sdcard", Toast.LENGTH_SHORT).show();
         textview.setText(result.toString());
         return rootView;
     }

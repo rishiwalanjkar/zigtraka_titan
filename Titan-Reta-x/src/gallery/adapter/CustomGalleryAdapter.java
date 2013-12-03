@@ -30,7 +30,7 @@ public class CustomGalleryAdapter extends BaseAdapter{
 		mGalleryItemBackground =
 		attr.getResourceId(R.styleable.HelloGallery_android_galleryItemBackground, 0);
 		attr.recycle();
-		mPicturesdirectory=new File(directory.titanNebulaPicturePath);
+		mPicturesdirectory=new File(directory.titanWatchItemPicturePath);
 		mPictures=mPicturesdirectory.listFiles(new FileFilter() {
 			
 			@Override

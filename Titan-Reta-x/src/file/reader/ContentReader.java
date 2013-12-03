@@ -17,7 +17,7 @@ public class ContentReader {
 	public static ArrayList<String> getToFromContents(String Start) {
 		try {
 			FileInputStream fstream = new FileInputStream(
-					directory.titanNebulaContentPath + "/TitanWatchContent.txt");
+					directory.titanWatchItemContentPath + "/TitanWatchContent.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					fstream));
 			String strLine;
@@ -38,7 +38,7 @@ public class ContentReader {
 			// Close the input stream
 			fstream.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return result;
 	}

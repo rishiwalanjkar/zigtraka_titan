@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
+import db.Access.DbForGetProductInformationActivity;
+import deploy.appdata.Creator;
+import deploy.appdata.directory;
+
 import zigtraka.nfc.reta_x.R;
 
 import android.nfc.NdefMessage;
@@ -224,36 +228,47 @@ public class GetProductInfo extends BaseActivity {
 		return myText;
 	}
 
+	public void ScanTag(Intent intent) {
+		if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+			Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+			TagID = ProductInformation.bin2hex(detectedTag.getId()).toString()
+					.toLowerCase();
+
+			if (TagID != null) {
+				// get model using tagid
+				String Model = DbForGetProductInformationActivity
+						.getModel(TagID);
+
+				// change path of folders regarding item
+				directory.setDirectories(Model);
+
+				// make direcotries if not exists
+				new Creator().deploy(getApplicationContext());
+
+				startActivity(new Intent(getApplicationContext(),
+						ProductInformation.class));
+			}
+		}
+	}
+
 //	 public void ScanTag(Intent intent) {
 //	 Bundle b = new Bundle();
-//	 String TagContents;
-//	 if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
-//	 Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-//	 TagID = ProductInformation.bin2hex(detectedTag.getId()).toString()
-//	 .toLowerCase();
+//	 b.putString("TagID", null);
+//	 b.putString("TagContents", null);
 //	
-//	 if (TagID != null) {
-//	 b.putString("TagID", TagID);
-//	 TagContents = readdata(getNdefMessages(intent)).toString();
-//	 if (TagContents != null) {
-//	 b.putString("TagContents", TagContents);
+//	 //get model using tagid
+//	 String
+//	 Model=DbForGetProductInformationActivity.getModel("0d67eb2b");
+//	
+//	 //change path of folders regarding item
+//	 directory.setDirectories(Model);
+//	
+//	 //make direcotries if not exists
+//	 new Creator().deploy(getApplicationContext());
+//	
 //	 startActivity(new Intent(getApplicationContext(),
 //	 ProductInformation.class).putExtras(b));
-//	
 //	 }
-//	 }
-//	 }
-//	
-//	 }
-
-	 public void ScanTag(Intent intent) {
-	 Bundle b = new Bundle();
-	  b.putString("TagID", null);
-	 b.putString("TagContents", null);
-	 startActivity(new Intent(getApplicationContext(),
-	 ProductInformation.class).putExtras(b));
-		
-	 }
 
 	@Override
 	protected int getResourceLayoutId() {
