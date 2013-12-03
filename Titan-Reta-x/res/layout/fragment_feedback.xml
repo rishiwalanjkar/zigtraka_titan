@@ -23,48 +23,44 @@
         android:textSize="16dp" />
 
     <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView1"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="53dp"
-        android:ems="10"
-        android:hint="Customer Name"
-        android:inputType="textPersonName" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/fragment_feedback_revieweditText"
         android:layout_width="400dp"
         android:layout_height="110dp"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="126dp"
+        android:layout_alignLeft="@+id/fragment_feedback_nameeditText"
+        android:layout_below="@+id/fragment_feedback_nameeditText"
+        android:layout_marginTop="79dp"
         android:ems="10"
         android:hint="Feedback"
         android:inputType="textMultiLine" />
 
     <RatingBar
-        android:id="@+id/ratingBar1"
+        android:id="@+id/fragment_feedback_ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="79dp" />
+        android:layout_alignLeft="@+id/fragment_feedback_revieweditText"
+        android:layout_below="@+id/fragment_feedback_revieweditText"
+        android:layout_marginTop="72dp" />
+
+    <EditText
+        android:id="@+id/fragment_feedback_nameeditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="75dp"
+        android:layout_toLeftOf="@+id/txtLabel"
+        android:ems="10"
+        android:hint="Customer Name"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/fragment_feedback_submitbutton"
         android:layout_width="110dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/ratingBar1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_alignRight="@+id/txtLabel"
+        android:layout_below="@+id/fragment_feedback_ratingBar"
+        android:layout_marginTop="76dp"
         android:background="#669900"
-        android:textColor="#FFFFFFFF"
-        android:text="Submit" />
+        android:text="Submit"
+        android:textColor="#FFFFFFFF" />
 
 </RelativeLayout>
