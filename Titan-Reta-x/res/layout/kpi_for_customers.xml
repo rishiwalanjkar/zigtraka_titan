@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="23dp"
         android:layout_marginTop="35dp"
-        android:entries="@array/dashboardforpast" />
+        android:textColor="@color/Black" android:entries="@array/dashboardforpast" />
 
     <TextView
         android:id="@+id/message"
@@ -69,7 +69,8 @@
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignLeft="@+id/kpi_for_customers_new_customerstextView"
         android:text="@string/Average_time_spent_by_a_customer_tot"
-        android:textSize="23sp" />
+        android:textSize="23sp" 
+        />
 
     <TextView
         android:id="@+id/kpi_for_customers_increase_in_new_customerstextView"

@@ -2,10 +2,11 @@ package zigtraka_titan.nfc.reta_x;
 
 import java.util.ArrayList;
 
-import db.Access.DbForProductInformationActivity;
+import db.Access.DbForGetProductInformationActivity;
+import deploy.appdata.Creator;
+import deploy.appdata.directory;
 
 import zigtraka.nfc.reta_x.R;
-
 
 import navigation.navigationdrawer.*;
 import navigation.navigationdrawer.adapter.NavDrawerListAdapter;
@@ -19,7 +20,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -28,10 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class ProductInformation extends BaseActivity {
 	private DrawerLayout mDrawerLayout;
@@ -50,16 +47,16 @@ public class ProductInformation extends BaseActivity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
-	String TagID, TagContents;
-	Bundle bundle;
-	private String[] TagDetails;
-	
-		@Override
+	String TagID;
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		bundle = getIntent().getExtras();
 
+		if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(getIntent().getAction())) {
+			ScanTag(getIntent());
+		}
+		
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
@@ -76,22 +73,26 @@ public class ProductInformation extends BaseActivity {
 
 		// adding nav drawer items to array
 		// Home
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
 		// Find People
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
 		// Photos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
 		// Communities, Will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1), true, "22"));
 		// Pages
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
-		// What's hot, We  will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1), true, "50+"));
-		
-		
-		
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+				.getResourceId(4, -1)));
+
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+				.getResourceId(5, -1)));
+		// What's hot, We will add a counter here
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+				.getResourceId(6, -1), true, "50+"));
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -108,9 +109,11 @@ public class ProductInformation extends BaseActivity {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, //nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -131,7 +134,7 @@ public class ProductInformation extends BaseActivity {
 			displayView(0);
 		}
 
-			}
+	}
 
 	public static String bin2hex(byte[] inarray) {
 		// TODO Auto-generated method stub
@@ -151,7 +154,6 @@ public class ProductInformation extends BaseActivity {
 		return out;
 	}
 
-
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -163,9 +165,16 @@ public class ProductInformation extends BaseActivity {
 		Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 		TagID = ProductInformation.bin2hex(detectedTag.getId()).toString()
 				.toLowerCase();
+		if (TagID != null) {
+			// get model using tagid
+			String Model = DbForGetProductInformationActivity.getModel(TagID);
 
-		TagContents = GetProductInfo.readdata(
-				GetProductInfo.getNdefMessages(intent)).toString();
+			// change path of folders regarding item
+			directory.setDirectories(Model);
+
+			// make direcotries if not exists
+			new Creator().deploy(getApplicationContext());
+		}
 
 	}
 
@@ -188,8 +197,6 @@ public class ProductInformation extends BaseActivity {
 			displayView(position);
 		}
 	}
-
-	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -241,7 +248,7 @@ public class ProductInformation extends BaseActivity {
 			break;
 		case 5:
 			fragment = new SocialFragment();
-			break;	
+			break;
 		case 6:
 			fragment = new MiscFragment();
 			break;
