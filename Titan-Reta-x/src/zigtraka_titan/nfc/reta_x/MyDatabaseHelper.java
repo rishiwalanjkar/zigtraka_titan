@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 	private static String DB_PATH = directory.databaseFolderPath+"/";
-	private static String DB_NAME = "mod.sqlite";
+	private static String DB_NAME = "titanwc.sqlite";
 	private static final int DATABASE_VERSION = 3;
 	private static InputStream Source;
 	private static OutputStream Destination;
