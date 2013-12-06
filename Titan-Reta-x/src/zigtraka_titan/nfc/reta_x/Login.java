@@ -1,6 +1,5 @@
 package zigtraka_titan.nfc.reta_x;
 
-import zigtraka.nfc.reta_x.R;
 import deploy.appdata.Creator;
 import android.app.Activity;
 import android.content.Intent;

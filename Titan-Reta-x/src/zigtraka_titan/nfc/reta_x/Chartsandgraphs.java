@@ -4,7 +4,6 @@ import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.BarChart.Type;
 
-import zigtraka.nfc.reta_x.R;
 
 import chart.specification.BarChartSpecification;
 import chart.specification.PieChartSpecification;

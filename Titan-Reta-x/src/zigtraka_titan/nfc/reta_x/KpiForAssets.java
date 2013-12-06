@@ -1,6 +1,5 @@
 package zigtraka_titan.nfc.reta_x;
 
-import zigtraka.nfc.reta_x.R;
 import db.Access.DbForKpiForAssetsActivity;
 import android.os.Bundle;
 import android.app.Activity;

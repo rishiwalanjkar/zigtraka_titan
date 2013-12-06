@@ -14,10 +14,9 @@ public class ContentReader {
 	static StringBuilder tempName;
 	static ArrayList<String> result;
 
-	public static ArrayList<String> getToFromContents(String Start) {
+	public static ArrayList<String> getToFromContents(String FilePath,String Start) {
 		try {
-			FileInputStream fstream = new FileInputStream(
-					directory.titanWatchItemContentPath + "/TitanWatchContent.txt");
+			FileInputStream fstream = new FileInputStream(FilePath);
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					fstream));
 			String strLine;

@@ -4,9 +4,10 @@ package navigation.navigationdrawer.adapter;
 
 import java.util.ArrayList;
 
+import zigtraka_titan.nfc.reta_x.R;
+
 import navigation.navigationdrawer.model.NavDrawerItem;
 
-import zigtraka.nfc.reta_x.R;
 
 
 import android.app.Activity;

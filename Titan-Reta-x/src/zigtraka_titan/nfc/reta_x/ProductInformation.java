@@ -6,7 +6,6 @@ import db.Access.DbForGetProductInformationActivity;
 import deploy.appdata.Creator;
 import deploy.appdata.directory;
 
-import zigtraka.nfc.reta_x.R;
 
 import navigation.navigationdrawer.*;
 import navigation.navigationdrawer.adapter.NavDrawerListAdapter;
@@ -14,7 +13,9 @@ import navigation.navigationdrawer.model.NavDrawerItem;
 
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.opengl.Visibility;
 import android.os.Bundle;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -30,7 +31,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class ProductInformation extends BaseActivity {
+public class ProductInformation extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -52,7 +53,8 @@ public class ProductInformation extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+		setContentView(R.layout.product_information);
 		if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(getIntent().getAction())) {
 			ScanTag(getIntent());
 		}
@@ -128,12 +130,14 @@ public class ProductInformation extends BaseActivity {
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		
 
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
 			displayView(0);
 		}
-
+        if(!mDrawerLayout.isDrawerOpen(mDrawerList))
+        	mDrawerLayout.openDrawer(mDrawerList);
 	}
 
 	public static String bin2hex(byte[] inarray) {
@@ -176,13 +180,6 @@ public class ProductInformation extends BaseActivity {
 			new Creator().deploy(getApplicationContext());
 		}
 
-	}
-
-	@Override
-	protected int getResourceLayoutId() {
-		// TODO Auto-generated method stub
-		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-		return R.layout.product_information;
 	}
 
 	/**

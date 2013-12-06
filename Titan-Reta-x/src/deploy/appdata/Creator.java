@@ -20,6 +20,7 @@ public class Creator {
 		new File(directory.databaseFolderPath).mkdirs();
 		new File(directory.titanWatchesPath).mkdirs();
 		new File(directory.titanWatchItemPath).mkdirs();
+		new File(directory.titanWatchItemStoryBoardsPath).mkdirs();
 		new File(directory.titanWatchItemContentPath).mkdirs();
 		new File(directory.titanWatchItemPicturePath).mkdirs();
 		new File(directory.titanWatchItemReviewPath).mkdirs();

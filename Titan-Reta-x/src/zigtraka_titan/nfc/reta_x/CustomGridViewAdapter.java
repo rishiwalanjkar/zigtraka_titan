@@ -2,7 +2,6 @@ package zigtraka_titan.nfc.reta_x;
 
 import java.util.ArrayList;
 
-import zigtraka.nfc.reta_x.R;
 
 import android.app.Activity;
 import android.content.Context;

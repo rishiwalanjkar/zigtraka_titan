@@ -1,6 +1,5 @@
 package zigtraka_titan.nfc.reta_x;
 
-import zigtraka.nfc.reta_x.R;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ListView;

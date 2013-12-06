@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import deploy.appdata.directory;
 import file.reader.ContentReader;
 import gallery.adapter.FragmentPicturesGalleryAdapter;
-import zigtraka.nfc.reta_x.R;
+import zigtraka_titan.nfc.reta_x.R;
 import android.app.Fragment;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -54,16 +54,21 @@ public class StoryboardFragment extends Fragment {
 		gallery = (Gallery) rootView
 				.findViewById(R.id.fragment_storyboard_gallery);
 
-		content = ContentReader.getToFromContents("$StoryboardContent=");
+		content = ContentReader.getToFromContents(
+				directory.titanWatchItemContentPath + "/TitanWatchContent.txt",
+				"$StoryboardContent=");
 
-		title = ContentReader.getToFromContents("$StoryboardTitle=");
+		title = ContentReader.getToFromContents(
+				directory.titanWatchItemContentPath + "/TitanWatchContent.txt",
+				"$StoryboardTitle=");
 
 		if (content != null || title != null)
 			gallery.setAdapter(new FragmentPicturesGalleryAdapter(rootView
 					.getContext(), content, title));
-		else 
-			Toast.makeText(rootView.getContext(), "No Content File On Sdcard", Toast.LENGTH_SHORT).show();
-        
+		else
+			Toast.makeText(rootView.getContext(), "No Content File On Sdcard",
+					Toast.LENGTH_SHORT).show();
+
 		play_pause = (ImageButton) rootView.findViewById(R.id.playimageButton);
 		play_pause.setBackgroundResource(R.drawable.play);
 		play_pause.refreshDrawableState();
@@ -73,7 +78,7 @@ public class StoryboardFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (mState == mPlayerState.notInitialized&&title!=null) {
+				if (mState == mPlayerState.notInitialized && title != null) {
 					initializeMusicPlayer(title.get(
 							(Integer) gallery.getSelectedItem()).toString());
 					player.start();
@@ -84,7 +89,7 @@ public class StoryboardFragment extends Fragment {
 					mState = mPlayerState.paused;
 					play_pause.setBackgroundResource(R.drawable.play);
 					play_pause.refreshDrawableState();
-				} else if (mState == mPlayerState.paused){
+				} else if (mState == mPlayerState.paused) {
 					player.start();
 					play_pause.setBackgroundResource(R.drawable.pause);
 					play_pause.refreshDrawableState();
@@ -119,8 +124,8 @@ public class StoryboardFragment extends Fragment {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				if ((mState == mPlayerState.playing
-						|| mState == mPlayerState.paused)&&title!=null) {
+				if ((mState == mPlayerState.playing || mState == mPlayerState.paused)
+						&& title != null) {
 					play_pause.setBackgroundResource(R.drawable.play);
 					play_pause.refreshDrawableState();
 					player.stop();
@@ -132,9 +137,6 @@ public class StoryboardFragment extends Fragment {
 					play_pause.setBackgroundResource(R.drawable.pause);
 					play_pause.refreshDrawableState();
 				}
-				else
-					Toast.makeText(rootView.getContext(), "No Content File On Sdcard", Toast.LENGTH_SHORT).show();
-		        
 			}
 
 			@Override
@@ -149,7 +151,7 @@ public class StoryboardFragment extends Fragment {
 	public void initializeMusicPlayer(String FileName) {
 		player = new MediaPlayer();
 		mState = mPlayerState.initialized;
-		String path = directory.titanWatchItemPicturePath + "/" + FileName
+		String path = directory.titanWatchItemStoryBoardsPath + "/" + FileName
 				+ ".mp3";
 		if (new File(path).exists()) {
 			try {

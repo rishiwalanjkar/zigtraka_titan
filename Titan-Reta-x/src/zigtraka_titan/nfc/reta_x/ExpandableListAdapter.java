@@ -3,7 +3,6 @@ package zigtraka_titan.nfc.reta_x;
 import java.util.HashMap;
 import java.util.List;
 
-import zigtraka.nfc.reta_x.R;
  
 import android.content.Context;
 import android.graphics.Typeface;

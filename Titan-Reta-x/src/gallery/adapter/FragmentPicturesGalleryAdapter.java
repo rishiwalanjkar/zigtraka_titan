@@ -7,7 +7,7 @@ import java.util.zip.Inflater;
 
 import deploy.appdata.directory;
 
-import zigtraka.nfc.reta_x.R;
+import zigtraka_titan.nfc.reta_x.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.BitmapFactory;

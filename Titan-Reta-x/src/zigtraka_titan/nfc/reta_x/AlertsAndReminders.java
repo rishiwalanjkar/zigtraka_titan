@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import zigtraka.nfc.reta_x.R;
 
 import android.app.ListActivity;
 import android.os.Bundle;

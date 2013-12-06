@@ -3,7 +3,7 @@ package listview.adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-import zigtraka.nfc.reta_x.R;
+import zigtraka_titan.nfc.reta_x.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;

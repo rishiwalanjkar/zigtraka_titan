@@ -1,7 +1,7 @@
 package navigation.navigationdrawer;
 
-import db.Access.DbForFeedbackFragment;
-import zigtraka.nfc.reta_x.R;
+import file.writer.Replacer;
+import zigtraka_titan.nfc.reta_x.R;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -47,8 +47,8 @@ public class FeedbackFragment extends Fragment {
 				if (validationCheck(v.getContext()))
 					;
 				else {
-					DbForFeedbackFragment.addFeedBack(mName.getText()
-							.toString(), mRating.getRating(), mReview.getText()
+					Replacer.append(mName.getText()
+							.toString(), String.valueOf(mRating.getRating()), mReview.getText()
 							.toString());
 					Toast.makeText(v.getContext(), "Added ", Toast.LENGTH_LONG)
 					.show();

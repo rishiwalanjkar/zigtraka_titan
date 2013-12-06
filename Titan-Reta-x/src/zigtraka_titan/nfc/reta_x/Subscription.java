@@ -13,7 +13,6 @@ import android.widget.Toast;
 import subscription.handler.GMailSender;
 import subscription.handler.GoogleMail;
 import subscription.handler.KeyGenerator;
-import zigtraka.nfc.reta_x.R;
 
 public class Subscription extends BaseActivity {
 

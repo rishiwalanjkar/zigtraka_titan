@@ -6,7 +6,6 @@ import java.util.TreeMap;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 
-import zigtraka.nfc.reta_x.R;
 
 import chart.specification.PieChartSpecification;
 import db.Access.dbForCustomerAnalysisActivity;

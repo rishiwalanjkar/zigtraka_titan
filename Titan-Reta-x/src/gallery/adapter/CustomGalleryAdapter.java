@@ -3,9 +3,10 @@ package gallery.adapter;
 import java.io.File;
 import java.io.FileFilter;
 
+import zigtraka_titan.nfc.reta_x.R;
+
 import deploy.appdata.directory;
 
-import zigtraka.nfc.reta_x.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.BitmapFactory;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import android.widget.ZoomControls;
 
 public class CustomGalleryAdapter extends BaseAdapter{
 
@@ -62,10 +65,11 @@ public class CustomGalleryAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
+		
 		ImageView imageView = new ImageView(mContext);
 		imageView.setImageBitmap(BitmapFactory.decodeFile(mPictures[position].getAbsolutePath()));
 		imageView.setLayoutParams(new Gallery.LayoutParams(Gallery.LayoutParams.WRAP_CONTENT, Gallery.LayoutParams.WRAP_CONTENT));
-		imageView.setScaleType(ImageView.ScaleType.MATRIX);
+		imageView.setScaleType(ScaleType.CENTER_INSIDE);
 		imageView.setBackgroundResource(mGalleryItemBackground);
 		
 		return imageView;

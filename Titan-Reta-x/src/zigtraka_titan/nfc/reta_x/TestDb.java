@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import zigtraka.nfc.reta_x.R;
 import deploy.appdata.directory;
 
 import android.os.Bundle;

@@ -8,7 +8,6 @@ import db.Access.DbForGetProductInformationActivity;
 import deploy.appdata.Creator;
 import deploy.appdata.directory;
 
-import zigtraka.nfc.reta_x.R;
 
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;

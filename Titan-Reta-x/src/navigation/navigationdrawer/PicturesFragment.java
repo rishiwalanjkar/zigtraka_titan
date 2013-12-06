@@ -3,7 +3,7 @@ package navigation.navigationdrawer;
 
 
 import gallery.adapter.CustomGalleryAdapter;
-import zigtraka.nfc.reta_x.R;
+import zigtraka_titan.nfc.reta_x.R;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

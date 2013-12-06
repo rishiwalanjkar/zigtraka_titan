@@ -1,6 +1,5 @@
 package zigtraka_titan.nfc.reta_x;
 
-import zigtraka.nfc.reta_x.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

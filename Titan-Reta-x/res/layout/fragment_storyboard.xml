@@ -3,33 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageButton
-        android:id="@+id/stopimageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/playimageButton"
-        android:layout_marginRight="128dp" />
-
-    <ImageButton
-        android:id="@+id/playimageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="92dp"
-        android:layout_marginLeft="108dp" />
-
     <Gallery
         android:id="@+id/fragment_storyboard_gallery"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="700dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:fadeScrollbars="false"
-        android:layout_marginTop="93dp" 
+         
         android:background="@drawable/listbackground"
         android:scrollbarAlwaysDrawHorizontalTrack="true"/>
+
+    <ImageButton
+        android:id="@+id/stopimageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/playimageButton"
+        android:layout_marginLeft="89dp"
+        android:layout_toRightOf="@+id/playimageButton" />
+
+    <ImageButton
+        android:id="@+id/playimageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fragment_storyboard_gallery"
+        android:layout_marginLeft="208dp"
+        android:layout_marginTop="45dp" />
 
 </RelativeLayout>
